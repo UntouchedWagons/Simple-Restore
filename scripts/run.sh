@@ -2,13 +2,17 @@
 
 BACKUP_DIRECTORY="/backups"
 
+if [ ! -d ${BACKUP_DIRECTORY} ]; then
+    echo "Folder to restore from does not exist. The backups folder should be available at /backups"
+    exit 1
+fi
+
 if [ -n $BACKUP_APPEND_DIRECTORY ]; then
     BACKUP_DIRECTORY=${BACKUP_DIRECTORY}${BACKUP_APPEND_DIRECTORY}
 fi
 
 if [ ! -d ${BACKUP_DIRECTORY} ]; then
-    echo "Folder to restore from does not exist. The backups folder should be available at /backups"
-    exit 1
+    echo $BACKUP_DIRECTORY" does not exist. This may simply be because no backups have been made yet."
 fi
 
 if [ ! -d "/data" ]; then
