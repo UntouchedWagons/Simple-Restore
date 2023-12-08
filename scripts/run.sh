@@ -32,6 +32,11 @@ if [ -z $FILE_TO_RESTORE ]; then
     exit
 fi
 
+if [ -e /data/RESTORED ]; then
+    echo "/data/RESTORED exists, bailing. If you want to restore the latest backup in place delete the RESTORED file"
+    exit
+fi
+
 touch /data/test
 
 if [ $? -ne 0 ]; then
@@ -41,4 +46,5 @@ fi
 
 rm /data/test
 
-tar -xzpf $FILE_TO_RESTORE -C /data
+tar -xzf $FILE_TO_RESTORE -C /data
+touch /data/RESTORED
