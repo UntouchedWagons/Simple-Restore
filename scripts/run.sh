@@ -48,3 +48,8 @@ rm /data/test
 
 tar -xzf $FILE_TO_RESTORE -C /data
 touch /data/RESTORED
+
+if [[ ! -z "${FORCE_OWNERSHIP}" ]]; then
+    echo "Setting folder ownership to ${FORCE_OWNERSHIP}"
+    chown -R $FORCE_OWNERSHIP /data
+fi
