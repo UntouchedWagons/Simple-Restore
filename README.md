@@ -9,7 +9,7 @@ Simple Restore is the companion to the Simple Backup container. It's more useful
     ---
     services:
         restore:
-            image: untouchedwagons/simple-restore:1.0.6
+            image: untouchedwagons/simple-restore:1.1.0
             container_name: restore
             restart: no
             environment:
@@ -23,7 +23,7 @@ Simple Restore is the companion to the Simple Backup container. It's more useful
 
     initContainers:
     - name: restore
-        image: untouchedwagons/simple-restore:1.0.6
+        image: untouchedwagons/simple-restore:1.1.0
         volumeMounts:
         - mountPath: /data
             name: Nginx-config
