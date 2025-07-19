@@ -46,5 +46,5 @@ fi
 
 rm /data/test
 
-tar -xzpf $FILE_TO_RESTORE -C /data --strip-components=1
+tar -xzpf $FILE_TO_RESTORE -C /
 touch /data/RESTORED
